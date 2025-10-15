@@ -1,0 +1,8 @@
+{
+  "SNN": {
+    "model": "SNN",
+    "lines_of_code": 136,
+    "lines_comments": 6,
+    "maintainability_index": 0.0,
+    "cyclomatic_complexity_avg": 2.0,
+    "cyclomatic_complexity_max": 

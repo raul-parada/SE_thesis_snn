@@ -1,0 +1,98 @@
+{
+  "HDFS_2k.log_structured_corrected": {
+    "dataset_name": "HDFS_2k.log_structured_corrected",
+    "timestamp": "20251015_142106",
+    "data_stats": {
+      "total_sequences": 1991
+    },
+    "snn_training": {
+      "accuracy": 100.0,
+      "latency_ms": 34.20380445627066,
+      "energy_proxy": 1701.1538461538462,
+      "co2_emissions_kg": 3.889105467536835e-05,
+      "energy_kwh": 0.00022344759939884142
+    },
+    "baseline_training": {
+      "isolation_forest": {
+        "accuracy": 68.1704260651629,
+        "f1": 0.0,
+        "latency_ms": 0.017354362889340048,
+        "co2_emissions_kg": 3.848754487370195e-07,
+        "energy_kwh": 2.2112924374433755e-06
+      }
+    },
+    "evaluation": {
+      "engineering_metrics": {
+        "SNN": {
+          "model": "SNN",
+          "lines_of_code": 156,
+          "lines_comments": 2,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 2.8,
+          "cyclomatic_complexity_max": 9
+        },
+        "Baseline": {
+          "model": "Baseline",
+          "lines_of_code": 148,
+          "lines_comments": 1,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 2.5,
+          "cyclomatic_complexity_max": 8
+        },
+        "project_modularity": {
+          "modules": 8,
+          "classes": 17,
+          "functions": 65
+        }
+      }
+    }
+  },
+  "HPC_2k.log_structured_corrected": {
+    "dataset_name": "HPC_2k.log_structured_corrected",
+    "timestamp": "20251015_142106",
+    "data_stats": {
+      "total_sequences": 1991
+    },
+    "snn_training": {
+      "accuracy": 100.0,
+      "latency_ms": 37.17094201308031,
+      "energy_proxy": 61.92307692307692,
+      "co2_emissions_kg": 3.889309309428892e-05,
+      "energy_kwh": 0.00022345931108468207
+    },
+    "baseline_training": {
+      "isolation_forest": {
+        "accuracy": 98.74686716791979,
+        "f1": 0.0,
+        "latency_ms": 0.014471230949076793,
+        "co2_emissions_kg": 3.8409169788887723e-07,
+        "energy_kwh": 2.20678941619579e-06
+      }
+    },
+    "evaluation": {
+      "engineering_metrics": {
+        "SNN": {
+          "model": "SNN",
+          "lines_of_code": 156,
+          "lines_comments": 2,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 2.8,
+          "cyclomatic_complexity_max": 9
+        },
+        "Baseline": {
+          "model": "Baseline",
+          "lines_of_code": 148,
+          "lines_comments": 1,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 2.5,
+          "cyclomatic_complexity_max": 8
+        },
+        "project_modularity": {
+          "modules": 8,
+          "classes": 17,
+          "functions": 65
+        }
+      }
+    }
+  }
+}

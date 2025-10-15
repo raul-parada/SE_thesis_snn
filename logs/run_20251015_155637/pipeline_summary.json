@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "timestamp": "20251015_155637",
+    "neuromorphic_simulation": true,
+    "hardware_speedup": 10.0,
+    "snn_optimizations": [
+      "Reduced timesteps (20 vs 100)",
+      "Early stopping",
+      "Sparse connectivity (30%)",
+      "Event-driven processing",
+      "Neuromorphic hardware simulation"
+    ]
+  },
+  "results": {
+    "Thunderbird_2k.log_structured_corrected": {
+      "dataset_name": "Thunderbird_2k.log_structured_corrected",
+      "timestamp": "20251015_155637",
+      "neuromorphic_simulation": true,
+      "hardware_speedup": 10.0,
+      "data_stats": {
+        "total_sequences": 1991,
+        "anomaly_ratio": 0.0,
+        "label_type": "heuristic"
+      },
+      "encoding_stats": {
+        "strategy": "rate",
+        "spike_density": 0.018922902643680573
+      },
+      "snn_training": {
+        "label_source": "real",
+        "total_params": 11076,
+        "trainable_params": 11076,
+        "effective_timesteps": 20,
+        "accuracy": 100.0,
+        "latency_ms": 1.3956124965961163,
+        "spike_density": 15.102283653846154,
+        "energy_proxy": 0.6721698113207547,
+        "early_stops": 0,
+        "co2_emissions_kg": 8.820018297602021e-07,
+        "energy_kwh": 5.0675198492398845e-06,
+        "neuromorphic_speedup": 10.0
+      },
+      "transformer_training": {
+        "label_source": "real",
+        "total_params": 267906,
+        "accuracy": 100.0,
+        "latency_ms": 2.1363221682035007,
+        "co2_emissions_kg": 2.6800397314627243e-06,
+        "energy_kwh": 1.5398102450231106e-05
+      },
+      "isoforest_training": {
+        "label_source": "real",
+        "accuracy": 99.49874686716792,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "latency_ms": 0.016956401050538944,
+        "co2_emissions_kg": 3.8301427509972647e-07,
+        "energy_kwh": 2.200599110024283e-06
+      },
+      "evaluation": {
+        "engineering_metrics": {
+          "SNN": {
+            "model": "SNN",
+            "lines_of_code": 287,
+            "lines_comments": 16,
+            "maintainability_index": 0.0,
+            "cyclomatic_complexity_avg": 4.42,
+            "cyclomatic_complexity_max": 12
+          },
+          "Baseline": {
+            "model": "Baseline",
+            "lines_of_code": 239,
+            "lines_comments": 12,
+            "maintainability_index": 0.0,
+            "cyclomatic_complexity_avg": 2.9,
+            "cyclomatic_complexity_max": 10
+          }
+        }
+      }
+    }
+  }
+}

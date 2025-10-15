@@ -1,0 +1,112 @@
+{
+  "HDFS_2k.log_structured_corrected": {
+    "dataset_name": "HDFS_2k.log_structured_corrected",
+    "timestamp": "20251015_144751",
+    "data_stats": {
+      "total_sequences": 1991,
+      "anomaly_ratio": 9.794073329984933
+    },
+    "snn_training": {
+      "total_params": 11076,
+      "accuracy": 100.0,
+      "latency_ms": 47.04702817476713,
+      "spike_density": 19.155874999999998,
+      "co2_emissions_kg": 3.870654290489069e-05,
+      "energy_kwh": 0.00022238749155352306
+    },
+    "transformer_training": {
+      "total_params": 267906,
+      "accuracy": 99.74937343358395,
+      "latency_ms": 2.4990118466890774,
+      "co2_emissions_kg": 2.7069757642216603e-06,
+      "energy_kwh": 1.555286276484723e-05
+    },
+    "isoforest_training": {
+      "accuracy": 68.1704260651629,
+      "f1": 0.0,
+      "latency_ms": 0.04598311613078106,
+      "co2_emissions_kg": 3.849811495784242e-07,
+      "energy_kwh": 2.211899739031452e-06
+    },
+    "evaluation": {
+      "engineering_metrics": {
+        "SNN": {
+          "model": "SNN",
+          "lines_of_code": 263,
+          "lines_comments": 16,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 4.25,
+          "cyclomatic_complexity_max": 12
+        },
+        "Baseline": {
+          "model": "Baseline",
+          "lines_of_code": 239,
+          "lines_comments": 12,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 2.9,
+          "cyclomatic_complexity_max": 10
+        },
+        "project_modularity": {
+          "modules": 8,
+          "classes": 19,
+          "functions": 74
+        }
+      }
+    }
+  },
+  "HPC_2k.log_structured_corrected": {
+    "dataset_name": "HPC_2k.log_structured_corrected",
+    "timestamp": "20251015_144751",
+    "data_stats": {
+      "total_sequences": 1750,
+      "anomaly_ratio": 2.685714285714286
+    },
+    "snn_training": {
+      "total_params": 11076,
+      "accuracy": 100.0,
+      "latency_ms": 47.334497625177555,
+      "spike_density": 0.06388636363636363,
+      "co2_emissions_kg": 3.4161487414469334e-05,
+      "energy_kwh": 0.00019627398686853967
+    },
+    "transformer_training": {
+      "total_params": 267906,
+      "accuracy": 99.42857142857143,
+      "latency_ms": 1.7829374833540483,
+      "co2_emissions_kg": 2.5327736130648434e-06,
+      "energy_kwh": 1.455198858411286e-05
+    },
+    "isoforest_training": {
+      "accuracy": 98.0,
+      "f1": 0.0,
+      "latency_ms": 0.02281938280378069,
+      "co2_emissions_kg": 3.869405613466328e-07,
+      "energy_kwh": 2.2231574912188037e-06
+    },
+    "evaluation": {
+      "engineering_metrics": {
+        "SNN": {
+          "model": "SNN",
+          "lines_of_code": 263,
+          "lines_comments": 16,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 4.25,
+          "cyclomatic_complexity_max": 12
+        },
+        "Baseline": {
+          "model": "Baseline",
+          "lines_of_code": 239,
+          "lines_comments": 12,
+          "maintainability_index": 0.0,
+          "cyclomatic_complexity_avg": 2.9,
+          "cyclomatic_complexity_max": 10
+        },
+        "project_modularity": {
+          "modules": 8,
+          "classes": 19,
+          "functions": 74
+        }
+      }
+    }
+  }
+}

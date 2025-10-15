@@ -4,24 +4,153 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eab4842-50ee-4dcd-9766-ed738b9071d5" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/baseline_ml.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/batch_processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cd_cd_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_loader.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generate_plots.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model_snn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_pipeline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spike_encoder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_pipeline.py" afterDir="false" />
+    <list default="true" id="5eab4842-50ee-4dcd-9766-ed738b9071d5" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Android_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Android_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Apache_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Apache_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/BGL_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/BGL_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HDFS_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HDFS_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HPC_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HPC_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Hadoop_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Hadoop_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HealthApp_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/HealthApp_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Linux_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Linux_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Mac_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Mac_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/OpenSSH_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/OpenSSH_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/OpenStack_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/OpenStack_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Proxifier_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Proxifier_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Spark_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Spark_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Thunderbird_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Thunderbird_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Windows_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Windows_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Zookeeper_2k.log_structured_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Zookeeper_2k.log_templates_corrected.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/engineering_comparison.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110000/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110234/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110407/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110407/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110407/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110705/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110705/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_110705/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_133529/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_133529/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_133529/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_134211/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_134211/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_134211/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_140513/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_140513/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_140513/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_142106/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_142106/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_142106/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_142106/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_142924/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_143202/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_143202/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_143202/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_143202/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144107/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144107/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144107/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144751/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144751/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144751/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144751/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_144751/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_145601/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_145601/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_145601/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_145601/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_145601/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_150740/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_150740/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_150740/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_150740/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_150740/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_152354/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_152354/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_152354/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_152354/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_152354/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155015/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155015/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155015/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155015/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155600/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155600/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155637/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155637/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155637/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155637/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155637/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155719/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155719/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155719/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155719/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_155719/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_160420/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_160420/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_160420/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_160420/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_160420/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_161557/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_161557/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_161557/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_161557/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_161557/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_162605/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_162605/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_162605/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_162605/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_162605/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_164201/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_164201/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_164201/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_164201/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_164201/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_165930/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_170122/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_170122/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_171037/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_171037/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_171037/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_171037/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_171037/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_172858/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_172858/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_172858/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_172858/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_172858/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_175201/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_175201/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_175201/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_175201/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_175201/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_180459/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_180459/engineering_metrics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_180459/optimized_snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_180459/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_180459/transformer_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_181944/emissions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_181944/pipeline_summary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_181944/snn_model.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/run_20251015_181944/transformer_model.pth" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +168,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "raul-parada"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/raul-parada/SE_thesis_snn.git",
+    "accountId": "02d5d6ce-aefd-4bef-b328-ba12c0888b21"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 2
 }]]></component>
@@ -110,11 +251,20 @@
       <option name="project" value="LOCAL" />
       <updated>1760471446782</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <option name="closed" value="true" />
+      <created>1760546244046</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760546244046</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>

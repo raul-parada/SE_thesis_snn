@@ -1,0 +1,23 @@
+{
+  "SNN": {
+    "model": "SNN",
+    "lines_of_code": 136,
+    "lines_comments": 6,
+    "maintainability_index": 0.0,
+    "cyclomatic_complexity_avg": 2.0,
+    "cyclomatic_complexity_max": 4
+  },
+  "Baseline": {
+    "model": "Baseline",
+    "lines_of_code": 158,
+    "lines_comments": 3,
+    "maintainability_index": 0.0,
+    "cyclomatic_complexity_avg": 1.64,
+    "cyclomatic_complexity_max": 3
+  },
+  "project_modularity": {
+    "modules": 8,
+    "classes": 17,
+    "functions": 66
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "timestamp": "20251015_145601",
+    "neuromorphic_simulation": true,
+    "hardware_speedup": 10.0,
+    "snn_optimizations": [
+      "Reduced timesteps (20 vs 100)",
+      "Early stopping",
+      "Sparse connectivity (30%)",
+      "Event-driven processing",
+      "Neuromorphic hardware simulation"
+    ]
+  },
+  "results": {
+    "HDFS_2k.log_structured_corrected": {
+      "dataset_name": "HDFS_2k.log_structured_corrected",
+      "timestamp": "20251015_145601",
+      "neuromorphic_simulation": true,
+      "hardware_speedup": 10.0,
+      "data_stats": {
+        "total_sequences": 1991,
+        "anomaly_ratio": 9.794073329984933,
+        "label_type": "severity"
+      },
+      "encoding_stats": {
+        "strategy": "rate",
+        "spike_density": 0.06171797960996628
+      },
+      "snn_training": {
+        "label_source": "real",
+        "total_params": 11076,
+        "trainable_params": 11076,
+        "effective_timesteps": 20,
+        "accuracy": 100.0,
+        "latency_ms": 1.478266716003418,
+        "spike_density": 27.294334935897435,
+        "energy_proxy": 2.154245283018868,
+        "early_stops": 0,
+        "co2_emissions_kg": 9.526316106409479e-07,
+        "energy_kwh": 5.473321520488065e-06,
+        "neuromorphic_speedup": 10.0
+      },
+      "transformer_training": {
+        "label_source": "real",
+        "total_params": 267906,
+        "accuracy": 99.74937343358395,
+        "latency_ms": 2.106281427236704,
+        "co2_emissions_kg": 2.7860644904533338e-06,
+        "energy_kwh": 1.600726509884133e-05
+      },
+      "isoforest_training": {
+        "label_source": "real",
+        "accuracy": 68.1704260651629,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "latency_ms": 0.017907087665452695,
+        "co2_emissions_kg": 3.8464725322462073e-07,
+        "energy_kwh": 2.209981345731805e-06
+      },
+      "evaluation": {
+        "engineering_metrics": {
+          "SNN": {
+            "model": "SNN",
+            "lines_of_code": 287,
+            "lines_comments": 16,
+            "maintainability_index": 0.0,
+            "cyclomatic_complexity_avg": 4.42,
+            "cyclomatic_complexity_max": 12
+          },
+          "Baseline": {
+            "model": "Baseline",
+            "lines_of_code": 239,
+            "lines_comments": 12,
+            "maintainability_index": 0.0,
+            "cyclomatic_complexity_avg": 2.9,
+            "cyclomatic_complexity_max": 10
+          },
+          "project_modularity": {
+            "modules": 8,
+            "classes": 19,
+            "functions": 75
+          }
+        }
+      }
+    },
+    "HPC_2k.log_structured_corrected": {
+      "dataset_name": "HPC_2k.log_structured_corrected",
+      "timestamp": "20251015_145601",
+      "neuromorphic_simulation": true,
+      "hardware_speedup": 10.0,
+      "data_stats": {
+        "total_sequences": 1750,
+        "anomaly_ratio": 2.685714285714286,
+        "label_type": "tristate"
+      },
+      "encoding_stats": {
+        "strategy": "rate",
+        "spike_density": 0.05753457173705101
+      },
+      "snn_training": {
+        "label_source": "real",
+        "total_params": 11076,
+        "trainable_params": 11076,
+        "effective_timesteps": 20,
+        "accuracy": 100.0,
+        "latency_ms": 1.5624978325583718,
+        "spike_density": 0.2156344696969697,
+        "energy_proxy": 0.021462264150943395,
+        "early_stops": 0,
+        "co2_emissions_kg": 8.543734726196796e-07,
+        "energy_kwh": 4.908781801894166e-06,
+        "neuromorphic_speedup": 10.0
+      },
+      "transformer_training": {
+        "label_source": "real",
+        "total_params": 267906,
+        "accuracy": 99.42857142857143,
+        "latency_ms": 1.9899281588467685,
+        "co2_emissions_kg": 2.534936183732768e-06,
+        "energy_kwh": 1.4564413580768558e-05
+      },
+      "isoforest_training": {
+        "label_source": "real",
+        "accuracy": 98.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "latency_ms": 0.04209109715053013,
+        "co2_emissions_kg": 3.938073405996202e-07,
+        "energy_kwh": 2.262610402755646e-06
+      },
+      "evaluation": {
+        "engineering_metrics": {
+          "SNN": {
+            "model": "SNN",
+            "lines_of_code": 287,
+            "lines_comments": 16,
+            "maintainability_index": 0.0,
+            "cyclomatic_complexity_avg": 4.42,
+            "cyclomatic_complexity_max": 12
+          },
+          "Baseline": {
+            "model": "Baseline",
+            "lines_of_code": 239,
+            "lines_comments": 12,
+            "maintainability_index": 0.0,
+            "cyclomatic_complexity_avg": 2.9,
+            "cyclomatic_complexity_max": 10
+          },
+          "project_modularity": {
+            "modules": 8,
+            "classes": 19,
+            "functions": 75
+          }
+        }
+      }
+    }
+  }
+}
