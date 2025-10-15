@@ -1,0 +1,33 @@
+# config.yaml
+# SNN Log Anomaly Detection - Production Configuration
+
+data:
+  # ONLY used for --single mode (ignored in batch mode)
+  # Batch mode auto-discovers all datasets in ./data/ folder
+  dataset_path: "data/Android_2k.log_structured_corrected.csv"
+
+  sample_ratio: 1.0              # Use 100% of data (1.0 = all data)
+  window_size: 10                # Logs per sequence
+  stride: 1                      # Overlapping windows (standard)
+  max_seq_len: 20                # Max tokens per sequence
+  anomaly_threshold: "adaptive"  # Auto-adjusts per dataset (10%, 30%, or 50%)
+
+encoding:
+  strategy: "RATE"               # Rate coding (bio-plausible)
+  time_steps: 100                # SNN simulation steps
+  max_rate: 1.0                  # Max firing rate
+
+snn:
+  input_size: 20                 # Must match max_seq_len
+  hidden_size: 128               # Hidden layer neurons
+  output_size: 2                 # Binary classification (normal/anomaly)
+
+training:
+  batch_size: 32                 # Training batch size
+  epochs: 10                     # Training epochs
+  learning_rate: 0.001           # Learning rate
+  device: "cpu"                  # "cpu" or "cuda"
+
+logging:
+  verbose: true                  # Print detailed logs
+  save_models: true              # Save trained models

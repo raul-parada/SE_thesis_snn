@@ -1,0 +1,43 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  # Main pipeline execution
+  snn-pipeline:
+    build: .
+    container_name: snn-log-anomaly
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./plots:/app/plots
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python src/run_pipeline.py
+
+  # Testing service
+  snn-test:
+    build: .
+    container_name: snn-test
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: pytest tests/ -v --cov=src --cov-report=html
+
+  # Plot generation service
+  snn-plots:
+    build: .
+    container_name: snn-plots
+    volumes:
+      - ./logs:/app/logs
+      - ./plots:/app/plots
+    command: python scripts/generate_thesis_plots.py
+
+  # Jupyter notebook for exploration (optional)
+  jupyter:
+    build: .
+    container_name: snn-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/app
+    command: jupyter notebook --ip=0.0.0.0 --no-browser --allow-root
