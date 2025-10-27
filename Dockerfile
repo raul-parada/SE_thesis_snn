@@ -1,6 +1,3 @@
-cd ~/SE_thesis_snn
-
-cat > Dockerfile << 'EOF'
 # Dockerfile - SNN Log Anomaly Detection
 FROM python:3.10-slim
 
@@ -27,6 +24,3 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
 CMD ["python", "run_pipeline.py"]
-EOF
-
-echo "✓ Dockerfile fixed"
