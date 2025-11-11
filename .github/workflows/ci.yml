@@ -12,7 +12,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -21,13 +21,12 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install pytest pytest-cov
         pip install numpy pandas scikit-learn scipy
-        pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+        pip install torch --index-url https://download.pytorch.org/whl/cpu
         pip install matplotlib seaborn PyYAML
         pip install imbalanced-learn codecarbon
-        # Skip spikingjelly for CI/CD tests
     
     - name: Run CI/CD Tests
       run: python ci_cd_test.py
