@@ -1,0 +1,86 @@
+# Configuration File for SNN-Based Log Anomaly Detection System
+# 
+# This configuration file defines all parameters for the anomaly detection pipeline,
+# including data processing, spike encoding, model architecture, training settings,
+# and logging options.
+
+# =============================================================================
+# Data Processing Configuration
+# =============================================================================
+data:
+  # Dataset path - used only in single-dataset mode
+  # In batch mode, this setting is ignored and all datasets in ./data/ are processed
+  dataset_path: "data/Android_2k.log_structured_corrected.csv"
+
+  # Sample ratio - proportion of data to use (0.0 to 1.0)
+  # 1.0 uses all available data
+  sample_ratio: 1.0
+
+  # Window size - number of log entries per sequence
+  window_size: 10
+
+  # Stride - step size for sliding window sequence extraction
+  # Value of 1 creates overlapping windows for maximum data utilization
+  stride: 1
+
+  # Maximum sequence length - maximum tokens per sequence for normalization
+  max_seq_len: 20
+
+  # Anomaly threshold strategy - determines label balancing approach
+  # "adaptive" automatically adjusts to dataset characteristics (10%, 30%, or 50%)
+  anomaly_threshold: "adaptive"
+
+# =============================================================================
+# Spike Encoding Configuration
+# =============================================================================
+encoding:
+  # Encoding strategy - method for converting data to spike trains
+  # "RATE" uses biologically-plausible rate coding
+  strategy: "RATE"
+
+  # Time steps - number of discrete time steps for SNN simulation
+  time_steps: 100
+
+  # Maximum firing rate - upper bound for spike generation rate
+  max_rate: 1.0
+
+# =============================================================================
+# Spiking Neural Network Architecture
+# =============================================================================
+snn:
+  # Input layer size - must match max_seq_len from data configuration
+  input_size: 20
+
+  # Hidden layer size - number of neurons in hidden layer
+  hidden_size: 128
+
+  # Output layer size - number of classes for classification
+  # 2 for binary classification (normal vs anomaly)
+  output_size: 2
+
+# =============================================================================
+# Training Configuration
+# =============================================================================
+training:
+  # Batch size - number of samples per training batch
+  batch_size: 32
+
+  # Epochs - number of complete passes through training data
+  epochs: 10
+
+  # Learning rate - step size for gradient descent optimization
+  learning_rate: 0.001
+
+  # Device - computing device for training and inference
+  # Options: "cpu" for CPU execution, "cuda" for GPU execution
+  device: "cpu"
+
+# =============================================================================
+# Logging and Output Configuration
+# =============================================================================
+logging:
+  # Verbose mode - enables detailed console output during execution
+  verbose: true
+
+  # Model saving - enables automatic saving of trained model weights
+  save_models: true

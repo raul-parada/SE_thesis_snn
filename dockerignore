@@ -1,0 +1,92 @@
+# Docker Build Context Exclusion Patterns
+#
+# This file specifies patterns for files and directories that should be excluded
+# from the Docker build context. Excluding unnecessary files reduces build time,
+# improves security, and decreases image size.
+#
+# Pattern syntax follows .gitignore conventions
+
+# =============================================================================
+# Python Runtime and Cache Files
+# =============================================================================
+# Exclude Python bytecode and cache directories
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# =============================================================================
+# Virtual Environments
+# =============================================================================
+# Exclude virtual environment directories
+.venv/
+venv/
+ENV/
+env/
+
+# =============================================================================
+# Testing and Coverage
+# =============================================================================
+# Exclude test cache and coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# =============================================================================
+# Build Artifacts
+# =============================================================================
+# Exclude distribution and build directories
+dist/
+build/
+*.egg-info/
+*.egg
+
+# =============================================================================
+# Project Output Directories
+# =============================================================================
+# Exclude logs directory contents but preserve the directory structure
+logs/*
+!logs/.gitkeep
+
+# Exclude models directory contents but preserve the directory structure
+models/*
+!models/.gitkeep
+
+# Exclude plots directory if it exists
+plots/*
+!plots/.gitkeep
+
+# =============================================================================
+# Version Control
+# =============================================================================
+# Exclude Git repository and related files
+.git/
+.gitignore
+.gitattributes
+
+# =============================================================================
+# Documentation
+# =============================================================================
+# Exclude markdown documentation (not needed at runtime)
+*.md
+README.md
+CHANGELOG.md
+
+# =============================================================================
+# IDE and Editor Files
+# =============================================================================
+# Exclude IDE-specific configuration files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# OS-Specific Files
+# =============================================================================
+# Exclude operating system files
+.DS_Store
+Thumbs.db
