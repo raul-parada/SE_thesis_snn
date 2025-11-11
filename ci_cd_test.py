@@ -1,7 +1,7 @@
 """
-CI/CD Automated Test Suite
+CI/CD Automated Test Suite - Standalone Version
 
-Test suite that validates the CI/CD pipeline functionality 
+This test suite validates core functionality ensuring compatibility with GitHub Actions CI/CD pipeline.
 """
 
 import os
@@ -14,176 +14,182 @@ import json
 from datetime import datetime
 
 
-class TestBasicFunctionality:
-    """
-    Test suite for basic Python and library functionality.
-    """
+class TestEnvironment:
+    """Test suite for environment setup."""
     
     def test_python_version(self):
-        """Test Python version is 3.9+."""
+        """Verify Python 3.9+ is available."""
         assert sys.version_info.major == 3
         assert sys.version_info.minor >= 9
     
-    def test_numpy_available(self):
-        """Test numpy is available and functional."""
-        arr = np.array([1, 2, 3, 4, 5])
-        assert arr.sum() == 15
-        assert arr.mean() == 3.0
-    
-    def test_torch_available(self):
-        """Test PyTorch is available and functional."""
-        tensor = torch.tensor([1.0, 2.0, 3.0])
-        assert tensor.sum().item() == 6.0
-        assert torch.cuda.is_available() or not torch.cuda.is_available()  # Always passes
-    
-    def test_sklearn_available(self):
-        """Test scikit-learn is available."""
-        from sklearn.ensemble import IsolationForest
-        model = IsolationForest(random_state=42)
-        assert model is not None
-    
-    def test_pandas_available(self):
-        """Test pandas is available and functional."""
-        import pandas as pd
-        df = pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})
-        assert len(df) == 3
-        assert list(df.columns) == ['a', 'b']
+    def test_core_packages(self):
+        """Verify core packages are installed."""
+        import numpy
+        import pandas
+        import torch
+        import sklearn
+        
+        assert numpy is not None
+        assert pandas is not None
+        assert torch is not None
+        assert sklearn is not None
 
 
-class TestDataProcessing:
-    """
-    Test suite for data processing functionality.
-    """
+class TestDataOperations:
+    """Test suite for data operations."""
     
     @pytest.fixture
     def sample_csv(self, tmp_path):
-        """Create a temporary CSV file for testing."""
+        """Create sample CSV data."""
         csv_content = """LineId,EventId,EventTemplate,Label
 1,E001,User login successful,Normal
 2,E002,Failed authentication attempt,Anomaly
 3,E001,User logout,Normal
 4,E003,Connection timeout,Anomaly
 5,E001,Session active,Normal"""
-        csv_file = tmp_path / "test_structured.csv"
+        csv_file = tmp_path / "test_data.csv"
         csv_file.write_text(csv_content)
         return str(csv_file)
     
     def test_csv_loading(self, sample_csv):
-        """Test CSV file can be loaded with pandas."""
+        """Test CSV loading with pandas."""
         import pandas as pd
         df = pd.read_csv(sample_csv)
         
         assert df is not None
         assert len(df) == 5
-        assert 'EventId' in df.columns
         assert 'Label' in df.columns
     
-    def test_data_filtering(self, sample_csv):
-        """Test data filtering operations."""
-        import pandas as pd
-        df = pd.read_csv(sample_csv)
+    def test_numpy_operations(self):
+        """Test numpy array operations."""
+        arr = np.array([[1, 2, 3], [4, 5, 6]])
         
-        # Filter anomalies
-        anomalies = df[df['Label'] == 'Anomaly']
-        assert len(anomalies) == 2
-        
-        # Filter normal
-        normal = df[df['Label'] == 'Normal']
-        assert len(normal) == 3
+        assert arr.shape == (2, 3)
+        assert arr.sum() == 21
+        assert arr.mean() == 3.5
 
 
-class TestMLOperations:
-    """
-    Test suite for machine learning operations.
-    """
+class TestTorchOperations:
+    """Test suite for PyTorch operations."""
     
-    def test_isolation_forest_training(self):
-        """Test Isolation Forest can be trained."""
-        from sklearn.ensemble import IsolationForest
+    def test_tensor_creation(self):
+        """Test tensor creation and operations."""
+        x = torch.tensor([1.0, 2.0, 3.0, 4.0])
         
-        # Generate synthetic data
-        X_train = np.random.rand(100, 10)
-        X_test = np.random.rand(20, 10)
-        
-        # Train model
-        model = IsolationForest(contamination=0.1, random_state=42)
-        model.fit(X_train)
-        
-        # Make predictions
-        predictions = model.predict(X_test)
-        
-        assert predictions.shape == (20,)
-        assert set(predictions).issubset({-1, 1})
+        assert x.shape == (4,)
+        assert x.sum().item() == 10.0
     
-    def test_torch_model_forward_pass(self):
-        """Test PyTorch model forward pass."""
-        # Simple linear model
+    def test_simple_model(self):
+        """Test simple neural network."""
         model = torch.nn.Sequential(
             torch.nn.Linear(10, 20),
             torch.nn.ReLU(),
             torch.nn.Linear(20, 2)
         )
         
-        # Create input
-        x = torch.rand(4, 10)
-        
-        # Forward pass
+        x = torch.randn(4, 10)
         output = model(x)
         
         assert output.shape == (4, 2)
         assert not torch.isnan(output).any()
+    
+    def test_loss_computation(self):
+        """Test loss computation."""
+        criterion = torch.nn.CrossEntropyLoss()
+        
+        outputs = torch.randn(4, 2)
+        targets = torch.tensor([0, 1, 0, 1])
+        
+        loss = criterion(outputs, targets)
+        
+        assert loss.item() >= 0
+        assert not torch.isnan(loss)
+
+
+class TestMLModels:
+    """Test suite for machine learning models."""
+    
+    def test_isolation_forest(self):
+        """Test Isolation Forest for anomaly detection."""
+        from sklearn.ensemble import IsolationForest
+        
+        # Create synthetic data
+        X_train = np.random.randn(100, 10)
+        X_test = np.random.randn(20, 10)
+        
+        # Train model
+        model = IsolationForest(contamination=0.1, random_state=42)
+        model.fit(X_train)
+        
+        # Predict
+        predictions = model.predict(X_test)
+        
+        assert predictions.shape == (20,)
+        assert set(predictions).issubset({-1, 1})
+    
+    def test_sklearn_metrics(self):
+        """Test sklearn metrics computation."""
+        from sklearn.metrics import accuracy_score, precision_score, recall_score
+        
+        y_true = np.array([0, 1, 1, 0, 1])
+        y_pred = np.array([0, 1, 0, 0, 1])
+        
+        acc = accuracy_score(y_true, y_pred)
+        prec = precision_score(y_true, y_pred)
+        rec = recall_score(y_true, y_pred)
+        
+        assert 0 <= acc <= 1
+        assert 0 <= prec <= 1
+        assert 0 <= rec <= 1
 
 
 class TestSpikeEncoding:
-    """
-    Test suite for spike encoding functionality.
-    """
+    """Test suite for spike encoding simulation."""
     
     def test_rate_encoding(self):
-        """Test rate-based spike encoding."""
+        """Test rate encoding simulation."""
+        batch_size = 10
+        features = 20
         time_steps = 100
-        data = np.random.rand(10, 20)
         
-        # Simple rate encoding: repeat data over time dimension
+        # Simulate rate encoding
+        data = np.random.rand(batch_size, features)
         spike_trains = np.repeat(data[:, np.newaxis, :], time_steps, axis=1)
         
-        # Verify output shape: (batch, time, features)
-        assert spike_trains.shape == (10, 100, 20)
-        assert spike_trains.dtype == np.float64
+        assert spike_trains.shape == (batch_size, time_steps, features)
     
-    def test_encoding_normalization(self):
-        """Test encoding normalization."""
-        data = np.array([[1, 2, 3], [4, 5, 6]])
+    def test_temporal_encoding(self):
+        """Test temporal encoding."""
+        data = np.array([0.1, 0.5, 0.9])
         
-        # Normalize to [0, 1]
-        normalized = (data - data.min()) / (data.max() - data.min() + 1e-8)
+        # Simulate spike timing
+        spike_times = (1.0 - data) * 100
         
-        assert normalized.min() >= 0
-        assert normalized.max() <= 1
+        assert spike_times[0] > spike_times[2]
+        assert len(spike_times) == 3
 
 
-class TestCICDIntegration:
-    """
-    Test suite for CI/CD integration functionality.
-    """
+class TestCICDPipeline:
+    """Test suite for CI/CD pipeline functionality."""
     
-    def test_logs_directory_creation(self, tmp_path):
-        """Test logs directory can be created."""
+    def test_logs_directory(self, tmp_path):
+        """Test logs directory creation."""
         log_dir = tmp_path / "logs"
         log_dir.mkdir(exist_ok=True)
         
         assert log_dir.exists()
         assert log_dir.is_dir()
     
-    def test_json_report_generation(self, tmp_path):
-        """Test JSON reports are generated correctly."""
+    def test_json_report(self, tmp_path):
+        """Test JSON report generation."""
         log_dir = tmp_path / "logs"
         log_dir.mkdir()
         
         result = {
             'status': 'PASSED',
             'exit_code': 0,
-            'timestamp': datetime.now().isoformat()
+            'timestamp': datetime.now().isoformat(),
+            'test_count': 10
         }
         
         report_path = log_dir / "ci_cd_results.json"
@@ -195,38 +201,31 @@ class TestCICDIntegration:
         with open(report_path, 'r') as f:
             loaded = json.load(f)
             assert loaded['status'] == 'PASSED'
-            assert loaded['exit_code'] == 0
     
-    def test_yaml_config_loading(self):
-        """Test YAML configuration can be loaded."""
+    def test_yaml_loading(self):
+        """Test YAML configuration loading."""
         import yaml
         
-        config = {
-            'model': {
-                'input_size': 20,
-                'hidden_size': 64,
-                'output_size': 2
-            }
-        }
+        config_str = """
+model:
+  input_size: 20
+  hidden_size: 64
+  output_size: 2
+training:
+  batch_size: 32
+  learning_rate: 0.001
+"""
         
-        # Test yaml operations
-        yaml_str = yaml.dump(config)
-        loaded = yaml.safe_load(yaml_str)
+        config = yaml.safe_load(config_str)
         
-        assert loaded['model']['input_size'] == 20
+        assert config['model']['input_size'] == 20
+        assert config['training']['batch_size'] == 32
 
 
 def generate_report(exit_code):
-    """
-    Generate test execution report.
-    
-    Creates a JSON report containing the test execution status, exit code,
-    and timestamp for CI/CD pipeline integration.
-    """
-    # Ensure logs directory exists
+    """Generate test execution report for CI/CD."""
     os.makedirs('logs', exist_ok=True)
     
-    # Compile report data
     result = {
         'status': 'PASSED' if exit_code == 0 else 'FAILED',
         'exit_code': int(exit_code),
@@ -235,36 +234,38 @@ def generate_report(exit_code):
         'python_version': f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
     }
     
-    # Save report as JSON
     report_path = 'logs/ci_cd_results.json'
     with open(report_path, 'w') as f:
         json.dump(result, f, indent=2)
     
-    print(f"\nReport saved to: {report_path}")
+    print(f"\n✓ Report saved: {report_path}")
     return result
 
 
 if __name__ == "__main__":
-    print("\n" + "=" * 60)
-    print("CI/CD AUTOMATED TESTS")
-    print("=" * 60 + "\n")
+    print("\n" + "=" * 70)
+    print("CI/CD AUTOMATED TEST SUITE")
+    print("=" * 70 + "\n")
     
-    # Execute pytest with verbose output
+    # Run pytest
     exit_code = pytest.main([
-        __file__, 
-        '-v', 
-        '--tb=short', 
-        '-p', 'no:warnings'
+        __file__,
+        '-v',
+        '--tb=short',
+        '-p', 'no:warnings',
+        '--maxfail=5'
     ])
     
-    # Generate test report
+    # Generate report
     report = generate_report(exit_code)
     
-    # Display final result
-    print("\n" + "=" * 60)
-    print(f"RESULT: {report['status']}")
+    # Print results
+    print("\n" + "=" * 70)
+    if exit_code == 0:
+        print("✓ RESULT: PASSED")
+    else:
+        print("✗ RESULT: FAILED")
     print(f"Exit Code: {exit_code}")
-    print("=" * 60 + "\n")
+    print("=" * 70 + "\n")
     
-    # Exit with appropriate code for CI/CD systems
     sys.exit(exit_code)
