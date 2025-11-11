@@ -28,6 +28,14 @@ jobs:
         pip install matplotlib seaborn PyYAML
         pip install imbalanced-learn codecarbon
     
+    - name: Create clean pytest.ini
+      run: |
+        cat > pytest.ini << 'EOF'
+        [pytest]
+        python_files = ci_cd_test.py
+        testpaths = .
+        EOF
+    
     - name: Run CI/CD Tests
       run: python ci_cd_test.py
     
