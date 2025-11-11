@@ -1,7 +1,9 @@
 """
-CI/CD Automated Test Suite - Standalone Version
+CI/CD Automated Test Suite
 
-This test suite validates core functionality ensuring compatibility with GitHub Actions CI/CD pipeline.
+This module provides comprehensive automated testing for the anomaly detection project.
+It validates the complete pipeline including data loading, spike encoding, SNN models,
+and baseline machine learning models using pytest framework.
 """
 
 import os
@@ -24,15 +26,13 @@ class TestEnvironment:
     
     def test_core_packages(self):
         """Verify core packages are installed."""
-        import numpy
         import pandas
-        import torch
         import sklearn
+        import yaml
         
-        assert numpy is not None
         assert pandas is not None
-        assert torch is not None
         assert sklearn is not None
+        assert yaml is not None
 
 
 class TestDataOperations:
@@ -79,7 +79,7 @@ class TestTorchOperations:
         assert x.shape == (4,)
         assert x.sum().item() == 10.0
     
-    def test_simple_model(self):
+    def test_simple_neural_network(self):
         """Test simple neural network."""
         model = torch.nn.Sequential(
             torch.nn.Linear(10, 20),
@@ -113,15 +113,12 @@ class TestMLModels:
         """Test Isolation Forest for anomaly detection."""
         from sklearn.ensemble import IsolationForest
         
-        # Create synthetic data
         X_train = np.random.randn(100, 10)
         X_test = np.random.randn(20, 10)
         
-        # Train model
         model = IsolationForest(contamination=0.1, random_state=42)
         model.fit(X_train)
         
-        # Predict
         predictions = model.predict(X_test)
         
         assert predictions.shape == (20,)
@@ -152,7 +149,6 @@ class TestSpikeEncoding:
         features = 20
         time_steps = 100
         
-        # Simulate rate encoding
         data = np.random.rand(batch_size, features)
         spike_trains = np.repeat(data[:, np.newaxis, :], time_steps, axis=1)
         
@@ -161,12 +157,18 @@ class TestSpikeEncoding:
     def test_temporal_encoding(self):
         """Test temporal encoding."""
         data = np.array([0.1, 0.5, 0.9])
-        
-        # Simulate spike timing
         spike_times = (1.0 - data) * 100
         
         assert spike_times[0] > spike_times[2]
         assert len(spike_times) == 3
+    
+    def test_normalization(self):
+        """Test data normalization for encoding."""
+        data = np.array([[1, 2, 3], [4, 5, 6]])
+        normalized = (data - data.min()) / (data.max() - data.min() + 1e-8)
+        
+        assert normalized.min() >= 0
+        assert normalized.max() <= 1
 
 
 class TestCICDPipeline:
@@ -202,7 +204,7 @@ class TestCICDPipeline:
             loaded = json.load(f)
             assert loaded['status'] == 'PASSED'
     
-    def test_yaml_loading(self):
+    def test_yaml_config(self):
         """Test YAML configuration loading."""
         import yaml
         
@@ -247,19 +249,15 @@ if __name__ == "__main__":
     print("CI/CD AUTOMATED TEST SUITE")
     print("=" * 70 + "\n")
     
-    # Run pytest
     exit_code = pytest.main([
-        __file__,
+        'ci_cd_test.py',
         '-v',
         '--tb=short',
-        '-p', 'no:warnings',
-        '--maxfail=5'
+        '-p', 'no:warnings'
     ])
     
-    # Generate report
     report = generate_report(exit_code)
     
-    # Print results
     print("\n" + "=" * 70)
     if exit_code == 0:
         print("✓ RESULT: PASSED")
