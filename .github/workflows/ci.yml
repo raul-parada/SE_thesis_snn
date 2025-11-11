@@ -22,8 +22,12 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install -r requirements.txt
         pip install pytest pytest-cov
+        pip install numpy pandas scikit-learn scipy
+        pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+        pip install matplotlib seaborn PyYAML
+        pip install imbalanced-learn codecarbon
+        # Skip spikingjelly for CI/CD tests
     
     - name: Run CI/CD Tests
       run: python ci_cd_test.py
