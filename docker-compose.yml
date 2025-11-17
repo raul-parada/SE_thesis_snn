@@ -1,71 +1,43 @@
-# Docker Compose Configuration for SNN-Based Log Anomaly Detection
-#
-# This Docker Compose file defines multiple services for running the anomaly detection
-# pipeline, testing suite, plot generation, and optional Jupyter notebook environment.
-# Each service uses volume mounts to share data, logs, and plots between the host and containers.
-
+# docker-compose.yml
 version: '3.8'
 
 services:
-  # =========================================================================
-  # Main Pipeline Service
-  # =========================================================================
-  # Executes the complete anomaly detection pipeline including data loading,
-  # model training, and evaluation
+  # Main pipeline execution
   snn-pipeline:
     build: .
     container_name: snn-log-anomaly
     volumes:
-      # Mount data directory for input datasets
       - ./data:/app/data
-      # Mount logs directory for output results and metrics
       - ./logs:/app/logs
-      # Mount plots directory for visualization output
       - ./plots:/app/plots
     environment:
-      # Disable Python output buffering for real-time logging
       - PYTHONUNBUFFERED=1
     command: python src/run_pipeline.py
 
-  # =========================================================================
-  # Testing Service
-  # =========================================================================
-  # Runs the automated test suite with coverage reporting
+  # Testing service
   snn-test:
     build: .
     container_name: snn-test
     volumes:
-      # Mount data directory for test datasets
       - ./data:/app/data
-      # Mount logs directory for test results
       - ./logs:/app/logs
     command: pytest tests/ -v --cov=src --cov-report=html
 
-  # =========================================================================
-  # Plot Generation Service
-  # =========================================================================
-  # Generates thesis-quality plots and visualizations from logged results
+  # Plot generation service
   snn-plots:
     build: .
     container_name: snn-plots
     volumes:
-      # Mount logs directory to read results
       - ./logs:/app/logs
-      # Mount plots directory to save generated visualizations
       - ./plots:/app/plots
     command: python scripts/generate_thesis_plots.py
 
-  # =========================================================================
-  # Jupyter Notebook Service (Optional)
-  # =========================================================================
-  # Provides interactive Jupyter environment for data exploration and analysis
+  # Jupyter notebook for exploration (optional)
   jupyter:
     build: .
     container_name: snn-jupyter
     ports:
-      # Expose Jupyter on port 8888
       - "8888:8888"
     volumes:
-      # Mount entire project directory for full access
       - ./:/app
     command: jupyter notebook --ip=0.0.0.0 --no-browser --allow-root
