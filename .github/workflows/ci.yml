@@ -12,7 +12,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -21,27 +21,17 @@ jobs:
     
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
+        pip install --upgrade pip
+        pip install -r requirements.txt
         pip install pytest pytest-cov
-        pip install numpy pandas scikit-learn scipy
-        pip install torch --index-url https://download.pytorch.org/whl/cpu
-        pip install matplotlib seaborn PyYAML
-        pip install imbalanced-learn codecarbon
-    
-    - name: Create clean pytest.ini
-      run: |
-        cat > pytest.ini << 'EOF'
-        [pytest]
-        python_files = ci_cd_test.py
-        testpaths = .
-        EOF
     
     - name: Run CI/CD Tests
       run: python ci_cd_test.py
     
     - name: Upload test results
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       if: always()
       with:
         name: test-results
         path: logs/ci_cd_results.json
+
