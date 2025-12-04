@@ -16,7 +16,7 @@ git clone https://github.com/raul-parada/SE_thesis_snn.git
 cd SE_thesis_snn
 sudo docker build -t se_thesis_snn:latest .
 sudo docker run -it se_thesis_snn:latest
-
+'''
 ---
 ## Main files
 
