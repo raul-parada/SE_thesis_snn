@@ -11,10 +11,12 @@ It includes data preprocessing, spike encoding, training, evaluation, plots, and
 ---
 ## Quick start
 
+```bash
 git clone https://github.com/raul-parada/SE_thesis_snn.git
 cd SE_thesis_snn
 sudo docker build -t se_thesis_snn:latest .
 sudo docker run -it se_thesis_snn:latest
+
 ---
 ## Main files
 
